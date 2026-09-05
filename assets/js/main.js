@@ -38,8 +38,12 @@
     if (e.key === 'Escape') closeMenu();
   });
 
-  /* ---- 3. Link ativo conforme a seção visível ---- */
-  var links = Array.prototype.slice.call(nav.querySelectorAll('.nav__link'));
+  /* ---- 3. Link ativo conforme a seção visível ----
+     Só vale para âncoras da própria página; nas páginas internas de proposta
+     os links apontam para ../index.html#… e devem ser ignorados aqui. */
+  var links = Array.prototype.slice.call(nav.querySelectorAll('.nav__link'))
+    .filter(function (a) { return a.getAttribute('href').charAt(0) === '#'; });
+
   var sections = links
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
     .filter(Boolean);

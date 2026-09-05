@@ -15,7 +15,12 @@ python -m http.server 8000
 ## Estrutura
 
 ```
-index.html                 marcação completa + sprite SVG dos ícones
+index.html                 página principal
+historia.html              "Minha história" — trajetória de Helena
+causa-autista.html         \
+neurodivergentes.html       |  uma página por prioridade,
+pcds.html                   |  abertas pelo "Saiba mais" dos cards
+idosos.html                /
 assets/css/style.css       estilos (tokens → base → componentes → responsivo)
 assets/js/main.js          menu mobile, header ao rolar, scrollspy, reveal
 assets/img/                imagens já recortadas para os slots do site
@@ -23,6 +28,9 @@ topo.png perfil.png        fotos originais enviadas
 icon1.png icon4.png iconpcd.png
 exemplo.jpeg               mockup de referência
 ```
+
+Não há build: header, rodapé e sprite de ícones são repetidos em cada arquivo.
+Ao mexer em um deles, replique nos demais.
 
 ## Seções
 
@@ -66,9 +74,27 @@ Substitua os arquivos em `assets/img/` mantendo os nomes:
 As atuais foram recortadas das fotos originais; ao receber os arquivos em alta
 resolução, é só sobrescrever.
 
+## Contatos usados no site
+
+- Instagram: <https://www.instagram.com/helenaholandahh/>
+- WhatsApp: <https://wa.me/5583993287247> — (83) 99328-7247
+
+Todos os botões "Quero apoiar", "Quero apoiar essa causa" e "Quero fazer parte"
+abrem o WhatsApp com mensagem pré-preenchida. **Notícias** e **Agenda**, no menu,
+apontam provisoriamente para o Instagram — troque quando existirem páginas próprias.
+
+## Conteúdo da página "Minha história"
+
+Escrito a partir de fontes públicas, listadas no rodapé da própria página
+(Prefeitura de João Pessoa, Câmara Municipal de João Pessoa, imprensa local e
+o registro de candidatura na Justiça Eleitoral). As propostas das 4 páginas de
+prioridade são texto de campanha e **precisam ser revisadas e aprovadas** antes
+de publicar.
+
 ## Pendências
 
-- [ ] Links reais de Instagram, Facebook e WhatsApp no rodapé
-- [ ] Páginas/âncoras de Notícias, Agenda e Contato (hoje apontam para `#`)
-- [ ] Destino do botão "Quero apoiar" (formulário ou link externo)
+- [ ] Revisar o texto das propostas com a candidata
+- [ ] Facebook: não há link — o ícone foi retirado do rodapé
+- [ ] Páginas próprias de Notícias e Agenda
 - [ ] Trocar `og:image` por uma arte 1200×630 dedicada
+- [ ] Fotos em alta resolução (as atuais foram recortadas dos materiais enviados)
