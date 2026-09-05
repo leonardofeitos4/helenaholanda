@@ -1,0 +1,713 @@
+/* =========================================================
+   Helena Holanda 5508 — landing page
+   ========================================================= */
+
+/* ---------- 1. Tokens ---------- */
+:root{
+  --pink:#e93a5d;
+  --pink-dark:#cf2b4b;
+  --orange:#f5a623;
+  --teal:#2bb8c9;
+  --teal-dark:#1fa3b4;
+  --teal-logo:#35c6d8;   /* turquesa do slogan na marca */
+  --purple:#7e5fa8;
+
+  --navy:#1f4e79;
+  --footer:#0c2c4a;
+  --cream:#fbf7f0;
+  --ink:#54585c;
+  --ink-strong:#2f3336;
+
+  --container:1180px;
+  --radius:14px;
+  --radius-sm:10px;
+
+  --shadow-sm:0 6px 18px rgba(20,40,70,.08);
+  --shadow-md:0 14px 34px rgba(20,40,70,.12);
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --brand:'Fredoka','Poppins',sans-serif;   /* "Helena Holanda 5508" */
+  --script:'Kaushan Script','Poppins',cursive; /* "sempre fez o bem" */
+}
+
+/* ---------- 2. Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+
+body{
+  margin:0;
+  font-family:var(--font);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block}
+ul{margin:0;padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 1em}
+h1,h2,h3{margin:0;line-height:1.15;color:var(--navy);font-weight:700}
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:24px;
+}
+
+.section{padding:86px 0}
+
+.c-pink{color:var(--pink)}
+.c-orange{color:var(--orange)}
+
+.ico{
+  width:1em;height:1em;
+  flex:none;
+  fill:currentColor;
+  vertical-align:-.12em;
+}
+
+/* ---------- 3. Tipografia de seção ---------- */
+p.script{
+  font-family:var(--script);
+  font-weight:400;
+  font-size:2.05rem;
+  line-height:.95;
+  max-width:none;
+  margin:0 0 -.06em;
+}
+.script--pink{color:var(--pink)}
+.script--white{color:#fff}
+
+.title{
+  font-size:clamp(1.7rem,2.6vw,2.15rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:var(--navy);
+}
+
+.rule{
+  display:block;
+  width:66px;height:4px;
+  margin:14px 0 22px;
+  border-radius:4px;
+  background:var(--orange);
+}
+.rule--center{margin-inline:auto}
+
+.section__head{text-align:center;margin-bottom:52px}
+
+/* ---------- 4. Botões ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.55em;
+  padding:.82em 1.5em;
+  border:0;
+  border-radius:999px;
+  font:inherit;
+  font-size:.9rem;
+  font-weight:600;
+  line-height:1;
+  color:#fff;
+  cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
+}
+.btn .ico{font-size:1.05em}
+
+.btn--pink{
+  background:var(--pink);
+  box-shadow:0 10px 24px rgba(233,58,93,.32);
+}
+.btn--pink:hover{
+  background:var(--pink-dark);
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(233,58,93,.42);
+}
+
+.btn--lg{padding:1em 1.9em;font-size:.95rem}
+
+.btn--ghost{
+  background:transparent;
+  border:1.6px solid rgba(255,255,255,.85);
+  box-shadow:none;
+}
+.btn--ghost:hover{background:#fff;color:var(--teal-dark);transform:translateY(-2px)}
+
+/* ---------- 5. Logo ---------- */
+/* "Helena" rosa / "Holanda" âmbar sobreposto / "5508" âmbar / slogan turquesa */
+.logo{
+  display:inline-grid;
+  grid-template-columns:auto auto;
+  column-gap:.08em;
+  line-height:1;
+  font-size:15px;          /* escala mestre do logo */
+  font-family:var(--brand);
+  font-weight:600;
+  white-space:nowrap;
+}
+.logo__name{
+  grid-area:1/1;
+  font-size:2.35em;
+  letter-spacing:-.025em;
+  color:var(--pink);
+}
+.logo__sur{
+  grid-area:2/1;
+  justify-self:start;
+  margin:-.44em 0 0 .82em;
+  font-size:1.6em;
+  letter-spacing:-.025em;
+  color:var(--orange);
+}
+.logo__num{
+  grid-area:1/2/3/3;
+  align-self:center;
+  font-size:3.3em;
+  letter-spacing:-.035em;
+  color:var(--orange);
+}
+.logo__slogan{
+  grid-area:3/1/4/3;
+  justify-self:center;
+  margin-top:.16em;
+  font-family:var(--script);
+  font-weight:400;
+  font-size:1.42em;
+  color:var(--teal-logo);
+}
+
+.logo--hero{font-size:27px}
+.logo--quote{font-size:25px}
+.logo--footer{font-size:17px}
+
+/* sobre fundo escuro o turquesa precisa clarear para manter contraste */
+.logo--hero,.logo--quote{filter:drop-shadow(0 4px 18px rgba(0,0,0,.5))}
+.logo--hero .logo__slogan,
+.logo--quote .logo__slogan{color:#54dbea}
+
+/* ---------- 6. Cabeçalho ---------- */
+.header{
+  position:fixed;
+  inset:0 0 auto;
+  z-index:60;
+  padding:16px 0;
+  transition:background .3s var(--ease),box-shadow .3s var(--ease),padding .3s var(--ease);
+}
+.header.is-stuck{
+  padding:9px 0;
+  background:rgba(10,32,54,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:0 6px 24px rgba(0,0,0,.22);
+}
+
+.header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.nav{display:flex;align-items:center;gap:30px}
+
+.nav__link{
+  position:relative;
+  font-size:.87rem;
+  font-weight:500;
+  color:#fff;
+  padding:6px 0;
+  transition:color .2s var(--ease);
+}
+.nav__link::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:2.5px;
+  border-radius:2px;
+  background:var(--pink);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .28s var(--ease);
+}
+.nav__link:hover::after,
+.nav__link.is-active::after{transform:scaleX(1)}
+
+.nav__cta{display:none}
+.header__cta{font-size:.87rem}
+
+.burger{
+  display:none;
+  width:44px;height:38px;
+  padding:9px 8px;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+}
+.burger span{
+  display:block;
+  height:2.5px;
+  border-radius:2px;
+  background:#fff;
+  transition:transform .3s var(--ease),opacity .2s var(--ease);
+}
+.burger span+span{margin-top:5px}
+.burger.is-open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------- 7. Hero ---------- */
+.hero{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:min(100vh,880px);
+  padding:150px 0 130px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero__bg{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:#20301f url('../img/helena-hero.jpg') center 22%/cover no-repeat;
+  transform:scale(1.04);
+}
+.hero__veil{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(8,20,14,.88) 0%,rgba(8,20,14,.78) 30%,rgba(8,20,14,.34) 58%,rgba(8,20,14,.12) 78%,rgba(8,20,14,.3) 100%),
+    linear-gradient(180deg,rgba(6,16,12,.55) 0%,rgba(6,16,12,0) 34%);
+}
+
+.hero__inner{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.hero__title{
+  font-size:clamp(2.4rem,5vw,4.05rem);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-.025em;
+  color:#fff;
+  margin-bottom:.5em;
+  text-shadow:0 2px 22px rgba(0,0,0,.35);
+}
+
+.hero__lead{
+  font-size:clamp(1rem,1.35vw,1.13rem);
+  font-weight:400;
+  line-height:1.55;
+  color:#fff;
+  margin-bottom:2em;
+  text-shadow:0 2px 16px rgba(0,0,0,.4);
+}
+.hero__lead strong{font-weight:700}
+
+.logo--hero{margin-bottom:14px}
+
+/* onda de transição */
+.wave{position:absolute;left:0;right:0;line-height:0;pointer-events:none}
+.wave svg{display:block;width:100%}
+.wave--hero{bottom:-1px;height:96px}
+.wave--hero svg{height:96px}
+.wave__fill{fill:var(--cream)}
+
+/* ---------- 8. Sobre ---------- */
+.sobre{background:var(--cream)}
+
+.sobre__grid{
+  display:grid;
+  grid-template-columns:minmax(0,.86fr) minmax(0,1fr);
+  gap:64px;
+  align-items:center;
+}
+
+.sobre__media{margin:0}
+.sobre__media img{
+  width:100%;
+  aspect-ratio:11/10;
+  object-fit:cover;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-md);
+}
+
+.sobre__text p:not(.script){max-width:46ch;font-size:.94rem}
+.sobre__text .strong{color:var(--ink-strong);font-weight:600}
+.sobre__text .btn{margin-top:10px}
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:34px;
+  margin-top:44px;
+}
+.pill{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:.8rem;
+  font-weight:600;
+  line-height:1.35;
+  color:var(--ink-strong);
+}
+.pill__ico{
+  display:grid;
+  place-items:center;
+  width:46px;height:46px;
+  flex:none;
+  border:1.5px solid rgba(233,58,93,.35);
+  border-radius:50%;
+  color:var(--pink);
+  font-size:1.15rem;
+  background:#fff;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.pill:hover .pill__ico{
+  transform:translateY(-3px);
+  box-shadow:0 8px 18px rgba(233,58,93,.2);
+}
+
+/* ---------- 9. Prioridades ---------- */
+.prioridades{
+  background:var(--cream);
+  padding-top:20px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:24px;
+}
+
+.card{
+  --c:var(--pink);
+  --media-h:170px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-sm);
+  overflow:visible;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+
+.card--pink{--c:var(--pink)}
+.card--orange{--c:var(--orange)}
+.card--teal{--c:var(--teal)}
+.card--purple{--c:var(--purple)}
+
+.card__media{
+  height:var(--media-h);
+  border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+  overflow:hidden;
+}
+.card__media img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .5s var(--ease);
+}
+.card:hover .card__media img{transform:scale(1.06)}
+
+.card__badge{
+  position:absolute;
+  top:var(--media-h);
+  left:20px;
+  display:grid;
+  place-items:center;
+  width:54px;height:54px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:var(--c);
+  color:#fff;
+  font-size:1.4rem;
+  box-shadow:0 8px 18px rgba(20,40,70,.22);
+}
+
+.card__body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:38px 22px 24px;
+  border-top:4px solid var(--c);
+  border-radius:0 0 var(--radius-sm) var(--radius-sm);
+}
+.card__title{
+  font-size:1.14rem;
+  font-weight:700;
+  color:var(--c);
+  letter-spacing:-.015em;
+  margin-bottom:.6em;
+}
+.card__body p{
+  font-size:.82rem;
+  line-height:1.6;
+  margin-bottom:1.4em;
+}
+.card__link{
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:.45em;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--c);
+}
+.card__link .ico{transition:transform .25s var(--ease)}
+.card__link:hover .ico{transform:translateX(4px)}
+
+/* ---------- 10. Citação ---------- */
+.citacao{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:340px;
+  padding:70px 0;
+  overflow:hidden;
+  isolation:isolate;
+}
+.citacao__bg{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:#1c2a1b url('../img/helena-citacao.jpg') center 30%/cover no-repeat;
+}
+.citacao__veil{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(8,18,12,.9) 0%,rgba(8,18,12,.72) 34%,rgba(8,18,12,.34) 62%,rgba(8,18,12,.55) 100%);
+}
+
+.citacao__inner{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.citacao__quote{margin:0;max-width:640px}
+.citacao__mark{
+  width:2.4rem;height:2.4rem;
+  color:rgba(255,255,255,.55);
+  margin-bottom:.35rem;
+}
+.citacao__quote p{
+  font-size:clamp(1.25rem,2.2vw,1.85rem);
+  font-weight:700;
+  line-height:1.35;
+  letter-spacing:-.02em;
+  color:#fff;
+  margin-bottom:1.1em;
+}
+
+/* ---------- 11. Juntos (faixa turquesa) ---------- */
+.juntos{
+  position:relative;
+  padding:74px 0 66px;
+  background:
+    radial-gradient(120% 90% at 78% 40%,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 55%),
+    linear-gradient(180deg,#2fc0d0 0%,#25aec0 100%);
+  color:#fff;
+}
+.wave--juntos-top{bottom:100%}
+.wave--juntos-top svg{height:40px}
+.wave--juntos-top path{fill:#2fc0d0}
+.wave--juntos-bottom{bottom:-1px}
+.wave--juntos-bottom svg{height:32px}
+.wave--juntos-bottom path{fill:var(--footer)}
+
+.juntos__grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr) minmax(0,.8fr);
+  gap:44px;
+  align-items:center;
+}
+
+.juntos p.script{font-size:2.3rem;margin-bottom:.06em}
+.juntos__title{
+  font-size:clamp(1.5rem,2.4vw,2rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:#fff;
+}
+
+.juntos__text p{
+  font-size:.92rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.94);
+  max-width:38ch;
+  margin-bottom:1.6em;
+}
+
+.juntos__art{justify-self:center}
+.juntos__art svg{width:min(230px,100%);height:auto}
+
+/* ---------- 12. Rodapé ---------- */
+.footer{
+  background:var(--footer);
+  color:rgba(255,255,255,.78);
+  padding:56px 0 0;
+  font-size:.85rem;
+}
+
+.footer__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,.8fr);
+  gap:40px;
+  padding-bottom:40px;
+}
+
+.footer__title{
+  font-size:.9rem;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:16px;
+}
+
+.footer__nav{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:6px 24px;
+}
+.footer__nav .footer__title{grid-column:1/-1}
+.footer__nav li{margin-bottom:8px}
+.footer__nav a{transition:color .2s var(--ease)}
+.footer__nav a:hover{color:var(--orange)}
+
+.social{display:flex;gap:12px}
+.social a{
+  display:grid;
+  place-items:center;
+  width:40px;height:40px;
+  border:1.5px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  color:#fff;
+  font-size:1.15rem;
+  transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+}
+.social a:hover{
+  background:var(--pink);
+  border-color:var(--pink);
+  transform:translateY(-3px);
+}
+
+.footer__bottom{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-block:18px;
+  border-top:1px solid rgba(255,255,255,.12);
+  font-size:.76rem;
+  color:rgba(255,255,255,.6);
+}
+.footer__bottom p{margin:0}
+
+/* ---------- 13. Animação de entrada ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* ---------- 14. Responsivo ---------- */
+@media (max-width:1080px){
+  .nav{gap:22px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .sobre__grid{gap:44px}
+  .juntos__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);row-gap:32px}
+  .juntos__art{grid-column:1/-1}
+}
+
+@media (max-width:900px){
+  .header__cta{display:none}
+  .burger{display:block}
+
+  .nav{
+    position:fixed;
+    inset:0 0 0 auto;
+    width:min(320px,84vw);
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:4px;
+    padding:104px 32px 40px;
+    background:rgba(10,32,54,.98);
+    backdrop-filter:blur(12px);
+    box-shadow:-16px 0 40px rgba(0,0,0,.3);
+    transform:translateX(100%);
+    transition:transform .38s var(--ease);
+    overflow-y:auto;
+  }
+  .nav.is-open{transform:none}
+  .nav__link{width:100%;padding:13px 0;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav__link::after{display:none}
+  .nav__link.is-active{color:var(--orange)}
+  .nav__cta{display:inline-flex;margin-top:26px}
+
+  .hero{padding:150px 0 120px;min-height:auto}
+  .hero__inner{flex-direction:column;align-items:flex-start}
+  .logo--hero{align-self:flex-end;margin-top:36px;font-size:21px}
+
+  .sobre__grid{grid-template-columns:minmax(0,1fr);gap:36px}
+  .sobre__text p:not(.script){max-width:none}
+
+  .citacao__inner{flex-direction:column;align-items:flex-start;gap:28px}
+  .logo--quote{align-self:flex-end;font-size:21px}
+
+  .footer__grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
+  .footer__brand{grid-column:1/-1}
+}
+
+@media (max-width:640px){
+  .section{padding:64px 0}
+  .container{padding-inline:20px}
+
+  .hero{padding:120px 0 110px}
+  .hero__title{font-size:2.35rem}
+  .wave--hero,.wave--hero svg{height:60px}
+
+  .cards{grid-template-columns:minmax(0,1fr);gap:34px}
+  .card{--media-h:200px}
+
+  .pills{gap:18px 24px}
+  .pill{font-size:.76rem}
+  .pill__ico{width:40px;height:40px;font-size:1rem}
+
+  .logo--hero{font-size:17px}
+  .logo--quote{font-size:16px}
+
+  .juntos__grid{grid-template-columns:minmax(0,1fr);text-align:left}
+  .juntos__art{justify-self:start}
+  .juntos__art svg{width:170px}
+
+  .footer__grid{grid-template-columns:minmax(0,1fr)}
+  .footer__bottom{flex-direction:column;align-items:flex-start;text-align:left}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
