@@ -337,8 +337,13 @@ p.script{
 .sobre__media{margin:0}
 .sobre__media img{
   width:100%;
-  aspect-ratio:11/10;
+  aspect-ratio:11/10;   /* altura do quadro: menor = mais baixo/panoramico */
   object-fit:cover;
+  /* ENQUADRAMENTO DA FOTO — mexa aqui.
+     1o valor = horizontal (0% esquerda … 100% direita)
+     2o valor = vertical   (0% topo     … 100% base)
+     A foto e mais larga que o quadro, entao o 1o valor desloca de verdade. */
+  object-position:0% 50%;
   border-radius:var(--radius);
   box-shadow:var(--shadow-md);
 }
