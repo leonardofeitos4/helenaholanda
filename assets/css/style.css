@@ -337,13 +337,19 @@ p.script{
 .sobre__media{margin:0}
 .sobre__media img{
   width:100%;
-  aspect-ratio:11/10;   /* altura do quadro: menor = mais baixo/panoramico */
+  /* ===== ZOOM DA FOTO — mexa aqui =====
+     Quadro mais deitado = MENOS zoom (aparece mais da praca):
+       10/10 = mais zoom
+        5/4
+        4/3  <- atual
+        3/2
+       16/10 = menos zoom (mostra a foto inteira)                        */
+  aspect-ratio:50/50;
   object-fit:cover;
-  /* ENQUADRAMENTO DA FOTO — mexa aqui.
-     1o valor = horizontal (0% esquerda … 100% direita)
-     2o valor = vertical   (0% topo     … 100% base)
-     A foto e mais larga que o quadro, entao o 1o valor desloca de verdade. */
-  object-position:0% 50%;
+  /* ===== POSICAO — 1o valor: 0% esquerda / 100% direita =====
+     O 2o valor (vertical) nao tem efeito: a altura da foto ja aparece
+     inteira. Para subir ou descer, mude o recorte de helena-sobre.jpg.  */
+  object-position:50% 50%;
   border-radius:var(--radius);
   box-shadow:var(--shadow-md);
 }
