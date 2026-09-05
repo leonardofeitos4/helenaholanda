@@ -555,8 +555,17 @@ p.script{
   margin-bottom:1.6em;
 }
 
-.juntos__art{justify-self:center}
-.juntos__art svg{width:min(230px,100%);height:auto}
+.juntos__art{justify-self:center;perspective:800px}
+.juntos__art svg{
+  width:min(230px,100%);
+  height:auto;
+  transform-style:preserve-3d;
+  animation:girar 7s linear infinite;
+}
+@keyframes girar{
+  from{transform:rotateY(0deg)}
+  to{transform:rotateY(360deg)}
+}
 
 /* ---------- 12. Rodapé ---------- */
 .footer{
@@ -566,11 +575,13 @@ p.script{
   font-size:.85rem;
 }
 
+/* marca | bloco legal | contatos — tudo na mesma linha */
 .footer__grid{
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,.8fr);
-  gap:40px;
-  padding-bottom:40px;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:30px 44px;
+  padding-bottom:34px;
 }
 
 .footer__title{
@@ -579,16 +590,6 @@ p.script{
   color:#fff;
   margin-bottom:16px;
 }
-
-.footer__nav{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:6px 24px;
-}
-.footer__nav .footer__title{grid-column:1/-1}
-.footer__nav li{margin-bottom:8px}
-.footer__nav a{transition:color .2s var(--ease)}
-.footer__nav a:hover{color:var(--orange)}
 
 .social{display:flex;gap:12px}
 .social a{
@@ -609,20 +610,26 @@ p.script{
 
 /* bloco legal exigido na propaganda eleitoral */
 .footer__bottom{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
-  padding-block:24px 28px;
-  border-top:1px solid rgba(255,255,255,.12);
+  padding-block:16px 20px;
+  border-top:1px solid rgba(255,255,255,.14);
   text-align:center;
 }
 .footer__bottom p{margin:0}
 
 .footer__legal{
-  font-size:.83rem;
-  line-height:1.8;
-  color:rgba(255,255,255,.82);
+  display:grid;
+  gap:4px;
+  margin:0;
+  text-align:center;
+  font-size:.97rem;
+  line-height:1.5;
+  color:rgba(255,255,255,.92);
+}
+.footer__legal strong{
+  font-weight:600;
+  font-size:1.06rem;
+  letter-spacing:-.01em;
+  color:#fff;
 }
 .footer__credito{
   font-size:.74rem;
@@ -931,8 +938,12 @@ p.script{
   .citacao__inner{flex-direction:column;align-items:flex-start;gap:28px}
   .logo--quote{align-self:flex-end;font-size:21px}
 
-  .footer__grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
-  .footer__brand{grid-column:1/-1}
+  .footer__grid{
+    grid-template-columns:minmax(0,1fr);
+    justify-items:center;
+    row-gap:30px;
+    text-align:center;
+  }
 
   .page-hero{padding:132px 0 80px}
   .page-grid{grid-template-columns:minmax(0,1fr);gap:40px}
@@ -961,8 +972,8 @@ p.script{
   .juntos__art{justify-self:start}
   .juntos__art svg{width:170px}
 
-  .footer__grid{grid-template-columns:minmax(0,1fr)}
-  .footer__legal{font-size:.78rem}
+  .footer__legal{font-size:.9rem}
+  .footer__legal strong{font-size:.98rem}
 
   .page-hero{padding:122px 0 70px}
   .wave--page,.wave--page svg{height:48px}

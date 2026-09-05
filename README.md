@@ -39,7 +39,11 @@ Ao mexer em um deles, replique nos demais.
 3. **Prioridades** — 4 cards: causa autista, neurodivergentes, PCDs, idosos
 4. **Citação** — faixa full-bleed com a frase da campanha
 5. **Juntos** — chamada final em turquesa
-6. **Rodapé** — navegação, redes sociais e dados legais
+6. **Rodapé** — marca, bloco legal da propaganda eleitoral e contatos
+
+O bloco legal fica na mesma linha da marca, no formato exigido:
+`Eleição 2026` / `Helena Maria Duarte de Holanda – Deputada Federal` /
+`CNPJ 68.491.829/0001-78`. Para alterá-lo é preciso editar **os 6 arquivos HTML**.
 
 ## Identidade
 
