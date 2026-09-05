@@ -607,18 +607,27 @@ p.script{
   transform:translateY(-3px);
 }
 
+/* bloco legal exigido na propaganda eleitoral */
 .footer__bottom{
   display:flex;
-  flex-wrap:wrap;
+  flex-direction:column;
   align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding-block:18px;
+  gap:14px;
+  padding-block:24px 28px;
   border-top:1px solid rgba(255,255,255,.12);
-  font-size:.76rem;
-  color:rgba(255,255,255,.6);
+  text-align:center;
 }
 .footer__bottom p{margin:0}
+
+.footer__legal{
+  font-size:.83rem;
+  line-height:1.8;
+  color:rgba(255,255,255,.82);
+}
+.footer__credito{
+  font-size:.74rem;
+  color:rgba(255,255,255,.42);
+}
 
 /* ---------- 13. Páginas internas de proposta ---------- */
 .tema-pink{--c:var(--pink)}
@@ -953,7 +962,7 @@ p.script{
   .juntos__art svg{width:170px}
 
   .footer__grid{grid-template-columns:minmax(0,1fr)}
-  .footer__bottom{flex-direction:column;align-items:flex-start;text-align:left}
+  .footer__legal{font-size:.78rem}
 
   .page-hero{padding:122px 0 70px}
   .wave--page,.wave--page svg{height:48px}
